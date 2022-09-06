@@ -1,4 +1,4 @@
-package Enfrentamientos;
+package Batallas;
 
 public class AtaqueNormal implements Ataque {
     @Override

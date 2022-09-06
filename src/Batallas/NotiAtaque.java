@@ -1,4 +1,4 @@
-package Enfrentamientos;
+package Batallas;
 
 public interface NotiAtaque {
     public void noti_ataque(Personaje atacante, Personaje atacado);

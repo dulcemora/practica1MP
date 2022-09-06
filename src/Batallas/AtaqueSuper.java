@@ -1,4 +1,4 @@
-package Enfrentamientos;
+package Batallas;
 
 public class AtaqueSuper implements Ataque{
     @Override
@@ -10,3 +10,4 @@ public class AtaqueSuper implements Ataque{
         NotiAtaqueSuper noticias = new NotiAtaqueSuper(atacante, atacado);
     }
 }
+

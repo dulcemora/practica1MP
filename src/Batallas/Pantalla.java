@@ -1,4 +1,4 @@
-package Enfrentamientos;
+package Batallas;
 import java.awt.Dimension;
 import javax.swing.*;
 
@@ -10,10 +10,9 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 
 public class Pantalla extends JFrame implements ActionListener {
-    public JLabel  titulo, ronda, p1, p2, p3, salud_p1, salud_p2, salud_p3, sactual_p1, sactual_p2, sactual_p3, 
-                    ataque_p1, ataque_p2, ataque_p3, poderes_p1, poderes_p2, poderes_p3, ataque_p1_ac, ataque_p2_ac, ataque_p3_ac, poderes_p1_ac,
-                     poderes_p2_ac, poderes_p3_ac,
-                   poder, poder_ronda, atacante, atacado, versus, ganador;
+    public JLabel  titulo, ronda, p1, p2, p3, salud_p1, salud_p2, salud_p3, sactual_p1, sactual_p2, sactual_p3,ataque_p1, ataque_p2, ataque_p3, 
+    poderes_p1, poderes_p2, poderes_p3, ataque_p1_ac, ataque_p2_ac, ataque_p3_ac, poderes_p1_ac, poderes_p2_ac, poderes_p3_ac, poder, 
+    poder_ronda, atacante, atacado, versus, ganador;
 
     public ImageIcon atacante_actual, atacado_actual, korbi_img, megan_img, dittu_img;
 
@@ -28,11 +27,11 @@ public class Pantalla extends JFrame implements ActionListener {
         datos_personajes();
         
 
-        atacante_actual = new ImageIcon("imagenes/korbi.png");
-        atacado_actual = new ImageIcon("imagenes/megan.png");
-        korbi_img = new ImageIcon("imagenes/korbi.png");
-        megan_img = new ImageIcon("imagenes/megan.png");
-        dittu_img = new ImageIcon("imagenes/dittu.png");
+        atacante_actual = new ImageIcon("src/imagenes/korbi.png");
+        atacado_actual = new ImageIcon("src/imagenes/megan.png");
+        korbi_img = new ImageIcon("src/imagenes/korbi.png");
+        megan_img = new ImageIcon("src/imagenes/megan.png");
+        dittu_img = new ImageIcon("src/imagenes/dittu.png");
 
 
         atacante = new JLabel(korbi_img);

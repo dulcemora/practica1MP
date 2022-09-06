@@ -1,8 +1,9 @@
-package Enfrentamientos;
+package Batallas;
 
 import java.util.ArrayList;
 import java.util.Random;
-
+import javax.swing.*;
+import java.awt.*;
 import javax.swing.ImageIcon;
 
 /**
@@ -10,7 +11,7 @@ import javax.swing.ImageIcon;
  */
 public class Enfrentamiento {
 
-    public Pantalla pantalla;
+    //public Pantalla pantalla;
 
     Personaje korbi = new Personaje("Korbi", 0);
     Personaje meganman = new Personaje("Meganman",1);
@@ -39,13 +40,16 @@ public class Enfrentamiento {
     
     Observador[] observadores = {observador1, observador2, observador3, observador4};
 
-    ImageIcon korbi_img = new ImageIcon("imagenes/korbi.png");
-    ImageIcon megan_img = new ImageIcon("imagenes/megan.png");
-    ImageIcon dittu_img = new ImageIcon("imagenes/dittu.png");
+    ImageIcon korbi_img = new ImageIcon("src/imagenes/korbi.png");
+    ImageIcon megan_img = new ImageIcon("src/imagenes/megan.png");
+    ImageIcon dittu_img = new ImageIcon("src/imagenes/dittu.png");
+
+    Pantalla pantalla = new Pantalla();
 
     int ronda_actual = 0;
 
     public Enfrentamiento(){
+        bienvenida();
         asignarSeguidores();
     }
 
@@ -53,6 +57,14 @@ public class Enfrentamiento {
         for (Observador observador : observadores) {
             observador.getPersonaje_a_seguir().agregarSeguidor(observador);
         }
+    }
+
+
+    public void bienvenida(){
+        pantalla.setBounds(0,0,800,800);
+        pantalla.setVisible(true);
+        pantalla.setResizable(false);
+        pantalla.setLocationRelativeTo(null);
     }
 
     public void ronda(){
@@ -81,7 +93,6 @@ public class Enfrentamiento {
         ataca(korbi, meganman, poder);
         //noticias_ataque(korbi, meganman);        
         dormir();
-
        
 
         actualizar_img(megan_img, dittu_img);

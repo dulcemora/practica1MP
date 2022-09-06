@@ -1,4 +1,4 @@
-package Enfrentamientos;
+package Batallas;
 
 import java.io.BufferedWriter;
 import java.io.File;
