@@ -1,6 +1,7 @@
 package Enfrentamientos;
 
 import javax.swing.*;
+import javax.xml.validation.Validator;
 
 public class Juego{
     
@@ -18,11 +19,16 @@ public class Juego{
         bienvenida();
         Enfrentamiento combate = new Enfrentamiento();
         combate.pantalla = pantalla;
-        for (int i = 0; i < 5; i++) {
+        /**for (int i = 0; i < 5; i++) {
             combate.ronda_actual++;
             combate.ronda();
 
+        }*/
+        while(!combate.hay_ganador()){
+            combate.ronda_actual++;
+            combate.ronda();
         }
+        combate.ganador();
         
     }
 

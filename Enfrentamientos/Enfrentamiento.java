@@ -76,6 +76,8 @@ public class Enfrentamiento {
         noticias_ataque(korbi, meganman);        
         dormir();
 
+       
+
         actualizar_img(megan_img, dittu_img);
         actualizarSalud();
         ataque(meganman, dittuu, poder);
@@ -113,7 +115,7 @@ public class Enfrentamiento {
 
     private void dormir(){
         try {
-            Thread.sleep(5000);
+            Thread.sleep(2000);
         } catch (InterruptedException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -128,9 +130,7 @@ public class Enfrentamiento {
         if(poder.getPersonaje() == atacante.getId()){
             atacante_poder = atacante_poder * poder.getAumento();
         }
-        /**if(poder.personaje == atacado.getId()){
-            atacado_poder = atacado_poder * poder.aumento;
-        }*/
+  
         atacado.salud_disminuye(atacante_poder);
         
         System.out.println(atacante.getNombre()+ " golpeo a "+ atacado.getNombre() );
@@ -157,6 +157,39 @@ public class Enfrentamiento {
     }
 
 
+    public boolean hay_ganador(){
+        for (Personaje personaje : personajes) {
+            if(personaje.getPuntos_salud()<= 0){
+                return true;
+            }
+        }
+        return false;
+    }
     
-    
+    public void ganador(){
+        Personaje ganador = personajes[0];
+        if(personajes[0].getPuntos_salud()< personajes[1].getPuntos_salud()){
+            ganador = personajes[1];
+        }
+        if(personajes[1].getPuntos_salud()< personajes[2].getPuntos_salud()){
+            ganador = personajes[2];
+        }
+
+        pantalla.atacante.setVisible(false);
+        pantalla.atacado.setVisible(false);
+        pantalla.versus.setVisible(false);
+        
+        if(ganador == korbi){
+            pantalla.ganador.setIcon(korbi_img);
+        }
+        if(ganador == meganman){
+            pantalla.ganador.setIcon(megan_img);
+        }
+        if(ganador == dittuu){
+            pantalla.ganador.setIcon(dittu_img);
+        }
+
+        pantalla.ganador.setVisible(true);
+
+    }
 }

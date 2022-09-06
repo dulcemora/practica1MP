@@ -10,7 +10,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 
 public class Pantalla extends JFrame implements ActionListener {
-    public JLabel  titulo, ronda, p1, p2, p3, salud_p1, salud_p2, salud_p3, sactual_p1, sactual_p2, sactual_p3, poder, poder_ronda, atacante, atacado, versus;
+    public JLabel  titulo, ronda, p1, p2, p3, salud_p1, salud_p2, salud_p3, sactual_p1, sactual_p2, sactual_p3, poder, poder_ronda, atacante, atacado, versus, ganador;
 
     public ImageIcon atacante_actual, atacado_actual, korbi_img, megan_img, dittu_img;
 
@@ -41,6 +41,12 @@ public class Pantalla extends JFrame implements ActionListener {
         add(atacante);
         add(atacado);
         add(versus);
+
+        ganador = new JLabel(korbi_img);
+        ganador.setBounds(200, 0, 400, 700);
+        ganador.setVisible(false);
+        add(ganador);
+
     }
 
     public void bienvenida(){
@@ -107,10 +113,6 @@ public class Pantalla extends JFrame implements ActionListener {
     }
 
 
-    public void batalla_korbi_megan(){      
-
-       
-    }
 
     
 
