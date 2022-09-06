@@ -126,9 +126,9 @@ public class Pantalla extends JFrame implements ActionListener {
         add(ataque_p3_ac);
 
 
-        poderes_p1 = new JLabel("Poderes Korbi:Amienemigos, Inflaso,\n Amimir ");
-        poderes_p2 = new JLabel("Poderes Meganman: BoomBoom, PorLaTangente,  HechoLaMocha ");
-        poderes_p3 = new JLabel("Poderes Dittuu: Farsante, Bostezo, Chamuscado");
+        poderes_p1 = new JLabel("Poderes Korbi: Amienemigos X2, Inflaso X3, Amimir  X4");
+        poderes_p2 = new JLabel("Poderes Meganman: BoomBoom X2, PorLaTangente X3,  HechoLaMocha X4");
+        poderes_p3 = new JLabel("Poderes Dittuu: Farsante X2, Bostezo X3, Chamuscado X4");
 
         poderes_p1.setBounds(50,  0, 600, 920);
         poderes_p2.setBounds(50, 0, 600, 950);

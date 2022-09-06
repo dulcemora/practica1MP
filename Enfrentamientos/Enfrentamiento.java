@@ -70,6 +70,7 @@ public class Enfrentamiento {
         
         System.out.println("El poder de la ronda es: " + poder.getNombre());
         pantalla.poder_ronda.setText(poder.getNombre());
+        actualizar_ataque(poder);
 
         actualizar_img(korbi_img, megan_img);
         ataque(korbi, meganman, poder);
@@ -95,6 +96,8 @@ public class Enfrentamiento {
         System.out.println("La salud de " + korbi.getNombre() + " es : " + korbi.getPuntos_salud());
         System.out.println("La salud de " + meganman.getNombre() + " es : " + meganman.getPuntos_salud());
         System.out.println("La salud de " + dittuu.getNombre() + " es : " + dittuu.getPuntos_salud());
+
+        restaurarPoder();
     }
 
     private void actualizar_img(ImageIcon a, ImageIcon b){
@@ -136,10 +139,31 @@ public class Enfrentamiento {
         System.out.println(atacante.getNombre()+ " golpeo a "+ atacado.getNombre() );
         System.out.println();
     }
-    
-    public void wachadores(Observador[] wachadores){
-        observadores = wachadores;
+
+    public void actualizar_ataque(Poder poder){
+        if(poder.getPersonaje() == personajes[0].getId()){
+            String nuevo_poder = String.valueOf(100*poder.getAumento());
+            pantalla.ataque_p1_ac.setText(nuevo_poder);
+        }
+        if(poder.getPersonaje() == personajes[1].getId()){
+            String nuevo_poder = String.valueOf(100*poder.getAumento());
+            pantalla.ataque_p2_ac.setText(nuevo_poder);
+        }
+        if(poder.getPersonaje() == personajes[2].getId()){
+            String nuevo_poder = String.valueOf(100*poder.getAumento());
+            pantalla.ataque_p3_ac.setText(nuevo_poder);
+        }
     }
+
+    public void restaurarPoder(){
+        pantalla.ataque_p1_ac.setText("100");
+        pantalla.ataque_p2_ac.setText("100");
+        pantalla.ataque_p3_ac.setText("100");
+    }
+    
+    /**public void wachadores(Observador[] wachadores){
+        observadores = wachadores;
+    }*/
 
     public void noticias_ataque(Personaje atacante, Personaje atacado){
         for (Observador observador : observadores) {
