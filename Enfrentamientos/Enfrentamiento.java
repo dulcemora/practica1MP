@@ -65,7 +65,7 @@ public class Enfrentamiento {
 
         Random rd = new Random();
         int poder_ronda = rd.nextInt(8);
-        System.out.println("POder" + poder_ronda);
+        System.out.println("Poder " + poder_ronda);
         Poder poder = poderes[poder_ronda];
         
         System.out.println("El poder de la ronda es: " + poder.getNombre());
@@ -73,7 +73,7 @@ public class Enfrentamiento {
         actualizar_ataque(poder);
 
         actualizar_img(korbi_img, megan_img);
-        ataque(korbi, meganman, poder);
+        ataca(korbi, meganman, poder);
         noticias_ataque(korbi, meganman);        
         dormir();
 
@@ -81,13 +81,13 @@ public class Enfrentamiento {
 
         actualizar_img(megan_img, dittu_img);
         actualizarSalud();
-        ataque(meganman, dittuu, poder);
+        ataca(meganman, dittuu, poder);
         noticias_ataque(meganman, dittuu);
         dormir();
 
         actualizar_img(dittu_img, korbi_img);
         actualizarSalud();
-        ataque(dittuu, korbi, poder);
+        ataca(dittuu, korbi, poder);
         noticias_ataque(dittuu, korbi);
 
         dormir();
@@ -118,7 +118,7 @@ public class Enfrentamiento {
 
     private void dormir(){
         try {
-            Thread.sleep(2000);
+            Thread.sleep(5000);
         } catch (InterruptedException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -126,7 +126,7 @@ public class Enfrentamiento {
     }
 
     
-    public void ataque(Personaje atacante, Personaje atacado, Poder poder){
+/*     public void ataque(Personaje atacante, Personaje atacado, Poder poder){
         int atacante_poder = atacante.getPoder_inicial();
         //int atacado_poder = atacado.getPoder_inicial();
 
@@ -138,7 +138,28 @@ public class Enfrentamiento {
         
         System.out.println(atacante.getNombre()+ " golpeo a "+ atacado.getNombre() );
         System.out.println();
+    } */
+
+    public void ataca(Personaje atacante, Personaje atacado, Poder poder){
+        if(poder.getPersonaje() != atacante.getId()){
+            AtaqueNormal ataque = new AtaqueNormal();
+            ataque.atacando(atacante, atacado);
+        }else{
+            if(poder.getAumento()== 2){
+                AtaqueEspecial ataque = new AtaqueEspecial();
+                ataque.atacando(atacante, atacado);
+            }
+            if(poder.getAumento()==3){
+                AtaqueSuper ataque = new AtaqueSuper();
+                ataque.atacando(atacante, atacado);
+            }
+            if(poder.getAumento()==4){
+                AtaqueMagnifico ataque = new AtaqueMagnifico();
+                ataque.atacando(atacante, atacado);
+            }
+        }
     }
+
 
     public void actualizar_ataque(Poder poder){
         if(poder.getPersonaje() == personajes[0].getId()){
