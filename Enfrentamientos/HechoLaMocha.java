@@ -7,10 +7,12 @@ package Enfrentamientos;
  *
  *Clase que contiene al poder HechoLaMocha, el cual al obtenerse hace que todo lo que se realice sea de manera mas rapida
  **/
-public class HechoLaMocha implements Poder{
+public class HechoLaMocha extends Poder{
     //Atributos
     //private int aumento_daño;
-    
+    public String nombre  = "HechoLaMocha";
+    int personaje = 1;
+    int aumento = 4;
     //Metodos
     public void aumentar_poder(String personaje){
     }

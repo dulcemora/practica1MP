@@ -7,10 +7,12 @@ package Enfrentamientos;
  *
  *Clase que contiene al poder PorLaTangente hace alusion a "irse por la tangente", el cual permite al personaje esquivar ataques de sus contrincantes
  **/
-public class PorLaTangente implements Poder{
+public class PorLaTangente extends Poder{
     //Atributos
     //private int aumento_daño;
-    
+    public String nombre  = "PorLaTangente";
+    public int personaje = 1;
+    int aumento = 3;
     //Metodos
     public void aumentar_poder(String personaje){
     }

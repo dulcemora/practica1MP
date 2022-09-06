@@ -7,10 +7,12 @@ package Enfrentamientos;
  *
  *Clase que contiene al poder Chamuscado, el cual permite lanzar truenos a sus contrincantes
  **/
-public class Chamuscado implements Poder{
+public class Chamuscado extends Poder{
     //Atributos
     //private int aumento_daño;
-    
+    public String nombre  = "Chamuscado";
+    public int personaje = 2;
+    int aumento = 4;
     //Metodos
     public void aumentar_poder(String personaje){
     }
