@@ -2,6 +2,8 @@ package Enfrentamientos;
 
 import java.util.ArrayList;
 
+import javax.swing.ImageIcon;
+
 public class Personaje {
     private String nombre;
     private int id;
@@ -9,8 +11,10 @@ public class Personaje {
     private int poder = poder_inicial;
     private ArrayList<Poder> habilidades = new ArrayList<Poder>();
     private int puntos_salud = 1000;
+    
     //private int ataque;
     //private int defensa;
+
 
     public Personaje(String name, int id){
         this.nombre = name;

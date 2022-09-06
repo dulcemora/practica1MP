@@ -3,17 +3,20 @@ package Enfrentamientos;
 import java.util.ArrayList;
 import java.util.Random;
 
+import javax.swing.ImageIcon;
+
 /**
  * Enfrentamiento
  */
 public class Enfrentamiento {
 
-
+    public Pantalla pantalla;
 
     Personaje korbi = new Personaje("Korbi", 0);
     Personaje meganman = new Personaje("Meganman",1);
     Personaje dittuu = new Personaje("Dittuu", 2);
     Personaje[] personajes = {korbi, meganman, dittuu};
+
     
     Poder poder_d_1 = new Poder("Amienemigos", 0, 0, 2);
     Poder poder_d_2 = new Poder("Inflaso", 0, 1, 3);
@@ -36,9 +39,21 @@ public class Enfrentamiento {
     
     Observador[] observadores = {observador1, observador2, observador3, observador4};
 
+    ImageIcon korbi_img = new ImageIcon("imagenes/korbi.png");
+    ImageIcon megan_img = new ImageIcon("imagenes/megan.png");
+    ImageIcon dittu_img = new ImageIcon("imagenes/dittu.png");
+
+    int ronda_actual = 0;
+
+    public Enfrentamiento(){
+        
+    }
+
 
     public void ronda(){
-
+        
+        actualizarSalud();
+        pantalla.ronda.setText("Ronda numero: "+ ronda_actual);
         /**for (Poder poder : poderes) {
             System.out.println(poder.getNombre());
         }*/
@@ -52,20 +67,59 @@ public class Enfrentamiento {
         int poder_ronda = rd.nextInt(8);
         System.out.println("POder" + poder_ronda);
         Poder poder = poderes[poder_ronda];
-
-        System.out.println("El poder de la ronda es: " + poder.getNombre());
         
+        System.out.println("El poder de la ronda es: " + poder.getNombre());
+        pantalla.poder_ronda.setText(poder.getNombre());
+
+        actualizar_img(korbi_img, megan_img);
         ataque(korbi, meganman, poder);
-        noticias_ataque(korbi, meganman);
+        noticias_ataque(korbi, meganman);        
+        dormir();
+
+        actualizar_img(megan_img, dittu_img);
+        actualizarSalud();
         ataque(meganman, dittuu, poder);
         noticias_ataque(meganman, dittuu);
+        dormir();
+
+        actualizar_img(dittu_img, korbi_img);
+        actualizarSalud();
         ataque(dittuu, korbi, poder);
         noticias_ataque(dittuu, korbi);
-        
+
+        dormir();
+
+        actualizarSalud();
         System.out.println("La salud de " + korbi.getNombre() + " es : " + korbi.getPuntos_salud());
         System.out.println("La salud de " + meganman.getNombre() + " es : " + meganman.getPuntos_salud());
         System.out.println("La salud de " + dittuu.getNombre() + " es : " + dittuu.getPuntos_salud());
     }
+
+    private void actualizar_img(ImageIcon a, ImageIcon b){
+        pantalla.atacante.setIcon(a);
+        pantalla.atacado.setIcon(b);
+    }
+
+    private void actualizarSalud(){
+        String salud_korbi = String.valueOf(korbi.getPuntos_salud());
+        String salud_meganman = String.valueOf(meganman.getPuntos_salud());
+        String salud_dittuu = String.valueOf(dittuu.getPuntos_salud());
+
+        pantalla.sactual_p1.setText(salud_korbi);
+        pantalla.sactual_p2.setText(salud_meganman);
+        pantalla.sactual_p3.setText(salud_dittuu);
+
+    }
+
+    private void dormir(){
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+
     
     public void ataque(Personaje atacante, Personaje atacado, Poder poder){
         int atacante_poder = atacante.getPoder_inicial();
