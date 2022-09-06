@@ -29,13 +29,11 @@ public class Pantalla extends JFrame implements ActionListener {
 
         atacante_actual = new ImageIcon("src/imagenes/korbi.png");
         atacado_actual = new ImageIcon("src/imagenes/megan.png");
-        korbi_img = new ImageIcon("src/imagenes/korbi.png");
-        megan_img = new ImageIcon("src/imagenes/megan.png");
-        dittu_img = new ImageIcon("src/imagenes/dittu.png");
 
 
-        atacante = new JLabel(korbi_img);
-        atacado = new JLabel(megan_img);
+
+        atacante = new JLabel(atacante_actual);
+        atacado = new JLabel(atacado_actual);
         versus = new JLabel("VS");
         atacante.setBounds(0,0, 400, 700);
         atacado.setBounds(400,0, 400, 700);
@@ -137,12 +135,6 @@ public class Pantalla extends JFrame implements ActionListener {
         add(poderes_p2);
         add(poderes_p3);
 
- 
-
-
-
-
-
         poder = new JLabel("El poder de esta ronda es: ");
         poder_ronda = new JLabel("Este");
 
@@ -155,10 +147,6 @@ public class Pantalla extends JFrame implements ActionListener {
 
      
     }
-
-
-
-    
 
 
     @Override

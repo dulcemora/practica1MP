@@ -10,7 +10,7 @@ public class AtaqueEspecial implements Ataque{
         atacado.salud_disminuye(atacante.getPoder()*2);
         System.out.println(atacante.getNombre()+ " golpeo a "+ atacado.getNombre() + " con un ataque Especial" );
         System.out.println();
-        NotiAtaqueEspecial noticias = new NotiAtaqueEspecial(atacante, atacado);
-
+        NotiAtaqueEspecial noticias = new NotiAtaqueEspecial();
+        noticias.noti_ataque(atacante, atacado);
     }
 }

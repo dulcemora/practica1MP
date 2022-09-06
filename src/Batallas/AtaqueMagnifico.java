@@ -7,7 +7,8 @@ public class AtaqueMagnifico implements Ataque {
         atacado.salud_disminuye(atacante.getPoder()*4);
         System.out.println(atacante.getNombre()+ " golpeo a "+ atacado.getNombre() + " con un poder Magnifico" );
         System.out.println();
-        NotiAtaqueMagnifico noticias = new NotiAtaqueMagnifico(atacante, atacado);
+        NotiAtaqueMagnifico noticias = new NotiAtaqueMagnifico();
+        noticias.noti_ataque(atacante, atacado);
 
     }
 }

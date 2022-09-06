@@ -47,7 +47,7 @@ public class Observador {
 
     public void crear(String texto){
         try {
-            File archivo = new File("observador" + id+ ".txt");
+            File archivo = new File("observador_" + nombre + ".txt");
             FileWriter escribir = new FileWriter(archivo);
             escribir.write(texto);
             escribir.close();

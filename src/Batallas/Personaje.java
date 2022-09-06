@@ -25,9 +25,7 @@ public class Personaje {
         puntos_salud = puntos_salud - poder;
     }
 
-    public void cambio_fuerza(int fuerza){
-        poder = poder + fuerza;
-    }
+ 
 
     public void aceptar_habilidades(Poder p1, Poder p2, Poder p3){
         habilidades.add(p1);
@@ -86,11 +84,5 @@ public class Personaje {
     public void setPuntos_salud(int puntos_salud) {
         this.puntos_salud = puntos_salud;
     }
-
-    
-    /**public void cambio_defensa(int defensa){
-
-    } */
-    
-      
+     
 }

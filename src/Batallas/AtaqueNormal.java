@@ -7,6 +7,7 @@ public class AtaqueNormal implements Ataque {
         atacado.salud_disminuye(atacante.getPoder());
         System.out.println(atacante.getNombre()+ " golpeo a "+ atacado.getNombre() );
         System.out.println();
-        NotiAtaqueNormal noticias = new NotiAtaqueNormal(atacante, atacado);
+        NotiAtaqueNormal noticias = new NotiAtaqueNormal();
+        noticias.noti_ataque(atacante, atacado);
     }
 }

@@ -240,5 +240,14 @@ public class Enfrentamiento {
         pantalla.poder_ronda.setVisible(false);
         pantalla.ganador.setVisible(true);
 
+        AvisaGanador noticia = new AvisaGanador();
+        noticia.avisa(ganador);
+
+        for (Personaje personaje : personajes) {
+            if(personaje.getId() != ganador.getId()){
+                AvisaPerdedor noticia_perdedor = new AvisaPerdedor();
+                noticia_perdedor.avisa(personaje);
+            }
+        }
     }
 }

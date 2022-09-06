@@ -2,14 +2,12 @@ package Batallas;
 
 public class NotiAtaqueSuper implements NotiAtaque{
 
-    public NotiAtaqueSuper(Personaje atacante, Personaje atacado){
-        noti_ataque(atacante, atacado);
-    }
+    
 
     @Override
     public void noti_ataque(Personaje atacante, Personaje atacado) {
         // TODO Auto-generated method stub
-        String texto = atacante.getNombre() +"ataca a " + atacado.getNombre() + " con un poder SUPER";  
+        String texto = atacante.getNombre() +" ataca a " + atacado.getNombre() + " con un poder SUPER";  
         for (Observador observador : atacante.seguidores) {
             observador.escribir("");
             observador.escribir(texto);
