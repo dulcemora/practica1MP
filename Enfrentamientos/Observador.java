@@ -20,20 +20,14 @@ public class Observador {
         crear("Bitacora para " + this.nombre + ". Que sigue a: " + personaje_a_seguir.getNombre());
     }
 
-    public void update_ataque(Personaje atacado){
-        String texto = personaje_a_seguir.getNombre() + " ataca a " + atacado.getNombre();
-        escribir(texto);
-    }
+
 
     public void salud(){
         String texto = "La salud de "+ personaje_a_seguir.getNombre() + " es " + personaje_a_seguir.getPuntos_salud();
         escribir(texto);
     }
 
-    public void update_amenaza(Personaje atacante){
-        String texto = atacante.getNombre() + " ataca a " + personaje_a_seguir.getNombre() + "\n";
-        escribir(texto);
-    }
+
 
 
     public void escribir(String texto){

@@ -7,5 +7,6 @@ public class AtaqueSuper implements Ataque{
         atacado.salud_disminuye(atacante.getPoder()*3);
         System.out.println(atacante.getNombre()+ " golpeo a "+ atacado.getNombre() + " con un poder Super" );
         System.out.println();
+        NotiAtaqueSuper noticias = new NotiAtaqueSuper(atacante, atacado);
     }
 }

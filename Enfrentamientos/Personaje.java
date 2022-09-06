@@ -11,7 +11,7 @@ public class Personaje {
     private int poder = poder_inicial;
     private ArrayList<Poder> habilidades = new ArrayList<Poder>();
     private int puntos_salud = 1000;
-    
+    public ArrayList<Observador> seguidores = new ArrayList<>();;
     //private int ataque;
     //private int defensa;
 
@@ -33,6 +33,10 @@ public class Personaje {
         habilidades.add(p1);
         habilidades.add(p2);
         habilidades.add(p3);
+    }
+
+    public void agregarSeguidor(Observador observador){
+        seguidores.add(observador);
     }
 
     public String getNombre() {

@@ -46,9 +46,14 @@ public class Enfrentamiento {
     int ronda_actual = 0;
 
     public Enfrentamiento(){
-        
+        asignarSeguidores();
     }
 
+    public void asignarSeguidores(){
+        for (Observador observador : observadores) {
+            observador.getPersonaje_a_seguir().agregarSeguidor(observador);
+        }
+    }
 
     public void ronda(){
         
@@ -74,7 +79,7 @@ public class Enfrentamiento {
 
         actualizar_img(korbi_img, megan_img);
         ataca(korbi, meganman, poder);
-        noticias_ataque(korbi, meganman);        
+        //noticias_ataque(korbi, meganman);        
         dormir();
 
        
@@ -82,13 +87,13 @@ public class Enfrentamiento {
         actualizar_img(megan_img, dittu_img);
         actualizarSalud();
         ataca(meganman, dittuu, poder);
-        noticias_ataque(meganman, dittuu);
+        //noticias_ataque(meganman, dittuu);
         dormir();
 
         actualizar_img(dittu_img, korbi_img);
         actualizarSalud();
         ataca(dittuu, korbi, poder);
-        noticias_ataque(dittuu, korbi);
+        //noticias_ataque(dittuu, korbi);
 
         dormir();
 
@@ -118,7 +123,7 @@ public class Enfrentamiento {
 
     private void dormir(){
         try {
-            Thread.sleep(5000);
+            Thread.sleep(1000);
         } catch (InterruptedException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -126,20 +131,6 @@ public class Enfrentamiento {
     }
 
     
-/*     public void ataque(Personaje atacante, Personaje atacado, Poder poder){
-        int atacante_poder = atacante.getPoder_inicial();
-        //int atacado_poder = atacado.getPoder_inicial();
-
-        if(poder.getPersonaje() == atacante.getId()){
-            atacante_poder = atacante_poder * poder.getAumento();
-        }
-  
-        atacado.salud_disminuye(atacante_poder);
-        
-        System.out.println(atacante.getNombre()+ " golpeo a "+ atacado.getNombre() );
-        System.out.println();
-    } */
-
     public void ataca(Personaje atacante, Personaje atacado, Poder poder){
         if(poder.getPersonaje() != atacante.getId()){
             AtaqueNormal ataque = new AtaqueNormal();
@@ -182,11 +173,9 @@ public class Enfrentamiento {
         pantalla.ataque_p3_ac.setText("100");
     }
     
-    /**public void wachadores(Observador[] wachadores){
-        observadores = wachadores;
-    }*/
 
-    public void noticias_ataque(Personaje atacante, Personaje atacado){
+
+    /*public void noticias_ataque(Personaje atacante, Personaje atacado){
         for (Observador observador : observadores) {
             if(observador.getPersonaje_a_seguir().getId() == atacante.getId()){
                 observador.update_ataque(atacado);
@@ -199,7 +188,10 @@ public class Enfrentamiento {
             }
         }
 
-    }
+    }*/
+
+
+    
 
 
     public boolean hay_ganador(){
