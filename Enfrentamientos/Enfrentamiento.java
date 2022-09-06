@@ -168,10 +168,10 @@ public class Enfrentamiento {
     
     public void ganador(){
         Personaje ganador = personajes[0];
-        if(personajes[0].getPuntos_salud()< personajes[1].getPuntos_salud()){
+        if(ganador.getPuntos_salud()< personajes[1].getPuntos_salud()){
             ganador = personajes[1];
         }
-        if(personajes[1].getPuntos_salud()< personajes[2].getPuntos_salud()){
+        if(ganador.getPuntos_salud() < personajes[2].getPuntos_salud()){
             ganador = personajes[2];
         }
 
@@ -188,7 +188,8 @@ public class Enfrentamiento {
         if(ganador == dittuu){
             pantalla.ganador.setIcon(dittu_img);
         }
-
+        pantalla.poder.setText("!!!!!EL GANADOR ES " + ganador.getNombre().toUpperCase() + "!!!!!");
+        pantalla.poder_ronda.setVisible(false);
         pantalla.ganador.setVisible(true);
 
     }
