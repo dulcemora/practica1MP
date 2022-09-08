@@ -1,4 +1,14 @@
 package Batallas;
+
+/**
+ * Pantalla
+ * Clase para el manejo de lo que se muestra en pantalla
+ * @author Giovanny Cruz
+ * @author Dulce Mora
+ * @author Marcos Noriega
+ * @version 1.0
+ */ 
+
 import java.awt.Dimension;
 import javax.swing.*;
 
@@ -16,8 +26,9 @@ public class Pantalla extends JFrame implements ActionListener {
 
     public ImageIcon atacante_actual, atacado_actual, korbi_img, megan_img, dittu_img;
 
-    
-
+    /** 
+     * Metodo que configura la Pantalla
+     */
     public Pantalla(){
         setLayout(null);
         setTitle("De la Rosa");
@@ -49,17 +60,29 @@ public class Pantalla extends JFrame implements ActionListener {
 
     }
 
+    /** 
+     * Metodo que da la bienvenida al observador, inicializa titulos
+    */
+
     public void bienvenida(){
       titulo = new JLabel("Bienvenido a las super Batallas");
       titulo.setBounds(300, 0, 300, 15);
       add(titulo);
     }
 
+    /** 
+     * Metodo que muestra en pantalla la ronda en la que se encuentra el enfrentamiento
+    */
+
     public void ronda(){
         ronda = new JLabel("Ronda numero: ");
         ronda.setBounds(300, 0, 400, 50);
         add(ronda);
     }
+
+    /** 
+     * Metodo que muestra en pantalla los datos de los personajes, asi como ataques y su salud
+    */
 
     public void datos_personajes(){
         p1 = new JLabel("Korbi");
